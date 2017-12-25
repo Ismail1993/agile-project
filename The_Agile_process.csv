@@ -1,0 +1,51 @@
+The Agile approach has in many organisations become the expected way of working. There have been many articles and books around the challenges of designing in an agile environment.
+
+When building a Minimum Viable Product (MVP) there are many competing factors, and with the pressure to release something demoable every sprint, features can get compromised in a way that requires rework later down the line.
+
+A method that we’ve been using at Caplin for the last 18 months is ‘Incremental UX’ — bringing the concept of MVP down to the component or feature level.
+
+The basic idea is to have a planned progression (leaving room for improvements through testing) of a feature that adds functionality at each stage.
+
+A common requirement of all our products (web applications for real time trading; foreign exchange, futures, bonds etc), is to be able to filter and sort very large tables of data. In one of our products we wanted to improve how we did this to make it more intuitive and powerful with the aim of bringing this across to all our products.
+
+oldfiltering
+How we used to do our sorting and filtering. This solution gave the user the same input for all data types; strings, numbers, dates etc. More advanced filtering like numerical and date ranges presumed the user knew the required input syntax.
+
+At the very start of the project, we wanted to have a thin slice (MVP) of the core functionality — being able to trade foreign exchange and have those trades appear in a table (or blotter as it is known in the industry). We knew the filtering was going to be a large piece of work (several sprints’ worth), but wanted to get some basic filtering in quickly.
+
+Often in these cases, a shoddily designed solution would be added to cover the absolute bare minimum functionality. This design wouldn’t take into account the additional requirements that would be added later, and would result in throw away code when the time came to build out the feature.
+
+The idea behind Incremental UX is to design iterations of a component, that can be developed one after the other. The key requirements are:
+
+The first iteration needs to address the most basic and fundamental user need
+Each iteration must then address the next most pressing user need
+Each iteration must build on the last, and throw away code and design must be nil or close to nil
+Rightly or wrongly, if we as designers propose a solution at the start of a project for an issue such as filtering that is going to take up more than an entire sprint, it will be thrown out during planning for a more fundamental feature. It will be deprioritised when a bug or infrastructure issue breaks the core functionality (in this case, being able to place a trade).
+
+At best, it will be broken down into chunks that may not make sense, and in a way that getting to the final picture is more painful and expensive than it needs to be.
+
+With an incremental plan, the iteration of a feature is controlled and manageable, with small increments and improvements being added over time alongside more fundamental and core features.
+
+The first iteration is enough to get the job done, with each iteration after that improving usability and increasing functionality.
+The solution was to have the filter and sort control available when the user clicked the column header. The user would see a dedicated filter control for the data type of the column. A string filter for strings, a date filter for dates, and a numerical filter for numbers. The user would not have to guess at the syntax required for slightly more complex filter criteria.
+
+The image below shows on the left the most basic filter that could be used for all data types. It doesn’t provide any more functionality that the solution shown in the image above, but is the first step of the three steps for the string filter. The following two iterations add more control and better usability, but build on the most basic version with almost no development rework.
+
+Filtersets
+String Filter increment. The most basic implementation that can be used for all data types is shown on the far left. Each version to the right of that adds more functionality.
+
+The user would be able to create ‘Filter sets’. These are a collection of filters that the user can label to keep for future use. This has proved popular among our users as it gives them the flexibility to customise the product to suit their individual workflows. The product is shipped with some filter sets included to get the user started.
+
+Filtersets
+The filter sets across the top allow for a subset of the initial data. The user is shown below what filters and sorts are added without having to click on each column header. They can also remove filters and sorts from here.
+
+The image above includes the most advanced date filter increment. The earlier increment can be seen below.
+
+numericalfilter
+The numerical filter achieves the main use case in the first iteration, allowing the user to filter ranges easily and intuitively. The following iterations doesn’t give the user any additional filtering abilities but concentrate on usability.
+
+The concept of Incremental UX also has the benefit of being able to test a concept in the real world, in the correct context, with actual users. It allows you to release an increment of a feature to real users, testing the initial concept and the direction of an idea without building the entire thing. This is the exactly the same motivation as designing an MVP of a whole product. Incremental UX is simply taking that concept down to the component level.
+
+This approach worked very well for us in this project and we have been using the concept since. It allows for rich, usable features to be developed alongside the core functionality in an agile environment. The concept of an MVP at a product level is a well established and proven concept. Bring this concept down to the component level gives the same benefits of incremental delivery, user testing and stakeholder approval and buy-in.
+
+I’d be very interested in any feedback, especially from people who are perhaps using the same or a similar concept in their teams.
